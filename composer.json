@@ -1,0 +1,21 @@
+{
+    "name": "kent/php_pro",
+    "type": "project",
+    "require": {
+        "guzzlehttp/guzzle": "7.*",
+        "psr/container": "*",
+        "illuminate/database": "v9.*",
+        "doctrine/orm": "*",
+        "monolog/monolog": "3.*",
+        "ufo-cms/colored_cli": "^1.0",
+        "ext-pdo": "*",
+        "symfony/cache": "^6.2"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Kent\\PhpPro\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
