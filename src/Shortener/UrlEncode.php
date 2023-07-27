@@ -9,7 +9,8 @@ namespace Kent\PhpPro\Shortener;
 
 use http\Exception\InvalidArgumentException;
 use Kent\PhpPro\DB\Models\Shortener;
-use Kent\PhpPro\DB\Models\ShortenerModel;
+
+use Kent\PhpPro\Shortener\Interfaces\IUrlDecoder;
 use Kent\PhpPro\Shortener\Interfaces\IUrlEncoder;
 use Kent\PhpPro\Shortener\Helpers\Filelog;
 use Kent\PhpPro\Shortener\Helpers\UrlValidator;
@@ -17,7 +18,7 @@ use Kent\PhpPro\Shortener\Helpers\MyExeption;
 
 
 
-class UrlEncode  implements IUrlEncoder
+class UrlEncode  implements IUrlEncoder, IUrlDecoder
 {
     const CODE_LENGTH = 8;
 
@@ -75,21 +76,7 @@ public function encodeWithDB(string $url): string
     return $code;
 
 
-//    $this->validator->validateUrl($url);
-//
-//
-//
-//
-//    if (!($shortener=Shortener::all())) {
-//
-//        $code = $this->generateUniqueCode();
-//        $shortener =Shortener::create([
-//            'code' => $code,
-//            'url' => $url
-//        ]);
-//    }
-//
-//    return $shortener->code;
+
 
 }
 

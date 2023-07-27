@@ -53,7 +53,7 @@ try{
     echo $convert->decodeWithDb($code);
 
 } catch (\PDOException $e) {
-    echo "Помилка підключення до бази даних: " . $e->getMessage();
+    echo "Нет подключения к базе данных: " . $e->getMessage();
     echo $convert->encode($url);
 //echo $convert->decode($code);
 
