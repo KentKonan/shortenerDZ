@@ -39,7 +39,7 @@ class Filelog
         return $this->all;
     }
 
-    public function saveInDB(string $url, string $code): void
+    public function saveInDB(string $url, string $code)
     {
 
         $requestModel=Shortener::create([
@@ -74,12 +74,14 @@ return $code;
     }
 
 
-    function WriteFile($content){
+    function WriteFile($content)
+
+    {
 
         $file = fopen($this->filename, "w+");
         fwrite($file,$content);
         fclose($file);
-        return true;
+
     }
 
     public function __destruct()
