@@ -9,7 +9,7 @@ class Shortener extends Model
 {
 
 
-    protected $table = "shorteners";
+    protected $table = "shortener";
 
     protected $fillable = [
         'code',
