@@ -1,6 +1,5 @@
 <?php
 
-
 use GuzzleHttp\Client;
 use Kent\PhpPro\DB\DataBaseAR;
 use Kent\PhpPro\Shortener\Helpers\Filelog;
@@ -9,6 +8,21 @@ use Kent\PhpPro\Shortener\UrlEncode;
 
 
 require_once __DIR__ . '/../vendor/autoload.php';
+
+
+
+$url = '';
+$code = '';
+if(isset($_GET["url"])){
+
+    $url = $_GET["url"];
+}
+if(isset($_GET["code"])){
+
+    $code = $_GET["code"];
+}
+
+
 
 
 
@@ -22,10 +36,8 @@ $fileLog= new Filelog('file.json');
 
 $validatorUrl= new UrlValidator(new Client());
 
-//$url="https://www.google.com/";
-//$url="https://www.twitch.tv/";
-//$url="1";
-$code="1sgRQ9d";
+
+
 
 $convert = new UrlEncode(
     $fileLog,
@@ -49,33 +61,19 @@ try{
         pass: $pass,
         port: $port);
 
-//    echo $convert->encodeWithDB($url);
-    echo $convert->decodeWithDb($code);
+    echo $convert->encodeWithDB($url);
+    echo PHP_EOL;
 
+
+
+
+//    echo $convert->decodeWithDb($code);
+//    echo PHP_EOL;
 } catch (\PDOException $e) {
     echo "Нет подключения к базе данных: " . $e->getMessage();
-    echo $convert->encode($url);
-//echo $convert->decode($code);
 
 
-    echo PHP_EOL;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

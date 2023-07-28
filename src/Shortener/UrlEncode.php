@@ -110,15 +110,17 @@ $this->filelog->saveInDB( $url, $code );
 
     public function decode(string $code):string
     {
-        try { $url = $this->filelog->getUrl($code);
+            try {
+                $url = $this->filelog->getUrl($code);
 
-        }catch (MyExeption $e){
-            throw new  InvalidArgumentException( "We dont have your Url ");
+            } catch (MyExeption $e) {
+                throw new  InvalidArgumentException("We dont have your Url ");
+            }
+
+            return $url;
+
         }
 
-        return $url;
-
-    }
 
 
     public function decodeWithDb(string $code):string
